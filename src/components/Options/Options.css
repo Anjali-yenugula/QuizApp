@@ -1,0 +1,14 @@
+.options{
+    background-color:#667783;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 10px;
+    width: 70%;
+
+}
+
+.options:hover{
+    background-color: #a1cae2;
+}

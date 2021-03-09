@@ -1,0 +1,30 @@
+
+h4{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+button{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    padding: 5px;
+    font-size: 20px;
+    width: 150px;
+    margin:20px;
+    color: white;
+    background-color:#025955;
+    border-radius: 10px;
+    margin-left: 190px;
+}
+
+.card {
+    display: grid;
+    max-width:50%;
+    max-height:60%;
+    background-color: white;
+    margin: 60px auto;
+    box-shadow: black;
+    padding:30px;
+    border-radius: 30px;
+}
