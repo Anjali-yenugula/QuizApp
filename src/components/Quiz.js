@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Question from './Questions/Questions';
 import Options from './Options/Options';
 import './Quiz.css';
 import {questions,answers,solutions} from './Data';
 
- class Quiz extends Component {
 
-    state = {
+ class Quiz extends React.Component {
+        state = {
         questions: questions,
         answers: answers,
         correctAnswers: solutions,
@@ -14,6 +14,7 @@ import {questions,answers,solutions} from './Data';
         count: 1,
         score: 0
     }
+
 
   
     checkAnswer = answer => {
@@ -64,6 +65,7 @@ import {questions,answers,solutions} from './Data';
                         <div className="card">
                             <p>You scored {score} of {Object.keys(questions).length}</p>
                             <button className="button" onClick={this.refreshPage}>Play Again</button>
+                           
                         </div>
                     )
                 }
