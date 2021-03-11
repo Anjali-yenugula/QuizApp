@@ -10,7 +10,6 @@ import {questions,answers,solutions} from './Data';
         questions: questions,
         answers: answers,
         correctAnswers: solutions,
-        correctAnswer: 0,
         count: 1,
         score: 0
     }
@@ -21,12 +20,11 @@ import {questions,answers,solutions} from './Data';
         const { correctAnswers, count, score } = this.state;
         if (answer === correctAnswers[count]) {
             this.setState({
-                score: score + 1,
-                correctAnswer: correctAnswers[count]
+                score: score + 1
             });
         } else {
             this.setState({
-                correctAnswer: 0
+                score:0
             });
         }
     }
@@ -35,7 +33,6 @@ import {questions,answers,solutions} from './Data';
     nextQuestion = (count) => {
         this.setState({
             count: count + 1,
-            correctAnswer: 0,
         });
     }
 
@@ -44,7 +41,7 @@ import {questions,answers,solutions} from './Data';
     }
 
     render() {
-        let { questions, answers, correctAnswer,  count, score } = this.state;
+        let { questions, answers,  count, score } = this.state;
         return (
             <div className="Container">
                 {count <= Object.keys(questions).length ?
@@ -55,9 +52,7 @@ import {questions,answers,solutions} from './Data';
                         />
                         <Options
                             answer={answers[count]}
-                            step={count}
                             checkAnswer={this.checkAnswer}
-                            correctAnswer={correctAnswer}
                         />
                         <button
                             className="button" onClick={() => this.nextQuestion(count)}>Next</button></div>
