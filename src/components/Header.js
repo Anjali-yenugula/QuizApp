@@ -3,7 +3,7 @@ import './Quiz.css';
 
 const Header =()=> {
     return(
-    <h1 class="heading">Quiz App</h1>
+    <h1 className="heading">Quiz App</h1>
     );
 }
 
