@@ -3,7 +3,6 @@ import Question from './Questions/Questions';
 import Options from './Options/Options';
 import { connect } from 'react-redux'
  import { DISPLAY_SCORE } from '../Services/constants'
-//import {displayScore} from "../Services/Actions/Actions"
 import './Quiz.css';
 import { questions, answers, solutions } from './Data';
 import Score from "../components/Score"
@@ -12,18 +11,14 @@ import Score from "../components/Score"
 
 
 class Quiz extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+       state = {
             questions: questions,
             answers: answers,
             correctAnswers: solutions,
-            correctAnswer: 0,
             question: 0,
             count: 1,
             score: 0,
         }
-    }
        
 
     checkAnswer = (answer) => {
@@ -32,7 +27,8 @@ class Quiz extends React.Component {
             //this.setState({
             //   score: score + 1,
             //});
-            //   passing the data to redux store t
+            //   passing the data to redux store
+            //Action
             this.props.dispatch({
                 type: DISPLAY_SCORE,
                 score: score + 1
@@ -48,7 +44,6 @@ class Quiz extends React.Component {
 
     refreshPage=()=> {
         this.setState({
-            correctAnswer: 0,
             question: 0,
             count: 1,
             score: 0,
@@ -56,7 +51,7 @@ class Quiz extends React.Component {
     }
    
     render() {
-        let { questions, answers, correctAnswer, count}= this.state;
+        let { questions, answers, count}= this.state;
         return (
             <div className="Container">
                 {
@@ -68,18 +63,16 @@ class Quiz extends React.Component {
                             />
                             <Options
                                 answer={answers[count]}
-                                step={count}
                                 checkAnswer={this.checkAnswer.bind(this)}
-                                correctAnswer={correctAnswer}
                             />
-                            <button className="button" onClick={() => this.nextQuestion(count)}>
-                                {count <= Object.keys(questions).length - 1 ? "NEXT" : "FINISH"}
+                            <button className="button" onClick={()=>this.nextQuestion(count)}>
+                                NEXT
                             </button>
                         </div>
                         :
                     <div className="card">
                         <Score/>
-                    <button className="button" onClick={() => this.refreshPage()}>Play Again</button>
+                    <button className="button" onClick={()=>this.refreshPage()}>Play Again</button>
                     </div>
                 }
             </div>
